@@ -5,9 +5,9 @@ access = "2hun7PER4v7BFbdOwmxmFjAerRXxdylgx2hUq3x9"
 secret = "k36NQHbxj3CuVXEHln7beatVNFFA3BFZyIPbqLNC"
 upbit = pyupbit.Upbit(access, secret)
 
-df = pyupbit.get_ohlcv("KRW-ETH")
+df = pyupbit.get_ohlcv("KRW-ETH",interval="minute60",count=24)
  
-df['range'] = (df['high'] - df['low']) * 0.0001
+df['range'] = (df['high'] - df['low']) * 0.5
 df['target'] = df['open'] + df['range'].shift(1)
 
 fee = 0
